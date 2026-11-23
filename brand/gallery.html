@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kinetic Atlas Brand Gallery</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+
+  .cover { background:radial-gradient(ellipse 520px 300px at 8% -20%, var(--glow-teal), transparent 75%), radial-gradient(ellipse 640px 340px at 97% -20%, var(--glow-violet), transparent 70%), var(--bg); }
+  .cover { position:relative; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .mint { fill:var(--primary); }
+  .alc { fill:var(--alc); }
+  .caf { fill:var(--caf); }
+  .nic { fill:var(--nic); }
+  .blk { rx:var(--radius); }
+  .dot { fill:var(--primary); }
+  .words { position:absolute; left:var(--space-6); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-size:96px; line-height:.92; font-weight:850; letter-spacing:-.045em; color:var(--text); }
+  .cover-tag { margin:var(--space-2) 0 0 4px; font-size:14px; line-height:20px; color:var(--muted); }
+
+  .cover-wrap { max-width:960px; margin:0 auto 22px; border:1px solid var(--border); border-radius:var(--radius); overflow-x:auto; }
+  .cover { width:960px; }
+  .g { max-width:960px; margin:0 auto; padding:28px 16px 76px; display:grid; gap:17px; }
+  .g-sec { border:1px solid var(--border); border-radius:var(--radius); background:var(--bg); overflow:hidden; }
+  .g-h { font-size:13px; font-weight:800; padding:13px 22px 0; letter-spacing:0; }
+  .g-h span { color:var(--muted); font-weight:500; margin-left:6px; }
+  .g-note { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4M7 9l5-5 5 5M5 20h14"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.8-3.6 3.8-5.5 7.5-5.5s6.7 1.9 7.5 5.5"/></symbol><symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.6 5.4 3.6 8.4 9 9-5.4.6-8.4 3.6-9 9-.6-5.4-3.6-8.4-9-9 5.4-.6 8.4-3.6 9-9z"/></symbol><symbol id="i-alcohol" viewBox="0 0 24 24"><path d="M7 3h10v3a5 5 0 0 1-10 0zM12 11v9M8.5 20h7"/></symbol><symbol id="i-caffeine" viewBox="0 0 24 24"><path d="M5 10h11v4.5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 11.5h1.5a2.5 2.5 0 0 1 0 5H16M8.5 4v3M12.5 4v3"/></symbol><symbol id="i-nicotine" viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 19 5c0 9-5 14-14 14zM5 19l7-7"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></symbol><symbol id="i-delete" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></symbol></svg>
+<main class="g">
+<div class="cover-wrap"><div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      primary 132x287 bled off the top (the brand hue, largest) · alc 88x160 · caf 88x112 · nic 121x72 bled off the right; bottoms on one line space-6 above the edge; about 30% of 960x288
+  arrangement a descending staircase of slabs, left to right: the elimination curve the product draws, read as blocks
+  pattern     dot grid, from "precise, technical": the chart is an instrument. primary dots at a space-4 (13px) pitch, column heights decaying 7 to 1, floating above the staircase
+  scales      sides in space-6 multiples (88 = 4 x 22, 132 = 6 x 22); gutters space-5 (17px); dot pitch space-4; corners radius (21px)
+-->
+<rect class="mint blk" x="0" y="-21" width="132" height="287" rx="21"/>
+<rect class="alc blk" x="149" y="106" width="88" height="160" rx="21"/>
+<rect class="caf blk" x="254" y="154" width="88" height="112" rx="21"/>
+<rect class="nic blk" x="359" y="194" width="142" height="72" rx="21"/>
+<circle class="dot" cx="258" cy="126" r="2.5"/>
+<circle class="dot" cx="258" cy="113" r="2.5"/>
+<circle class="dot" cx="258" cy="100" r="2.5"/>
+<circle class="dot" cx="258" cy="87" r="2.5"/>
+<circle class="dot" cx="258" cy="74" r="2.5"/>
+<circle class="dot" cx="258" cy="61" r="2.5"/>
+<circle class="dot" cx="258" cy="48" r="2.5"/>
+<circle class="dot" cx="271" cy="126" r="2.5"/>
+<circle class="dot" cx="271" cy="113" r="2.5"/>
+<circle class="dot" cx="271" cy="100" r="2.5"/>
+<circle class="dot" cx="271" cy="87" r="2.5"/>
+<circle class="dot" cx="271" cy="74" r="2.5"/>
+<circle class="dot" cx="271" cy="61" r="2.5"/>
+<circle class="dot" cx="284" cy="126" r="2.5"/>
+<circle class="dot" cx="284" cy="113" r="2.5"/>
+<circle class="dot" cx="284" cy="100" r="2.5"/>
+<circle class="dot" cx="284" cy="87" r="2.5"/>
+<circle class="dot" cx="284" cy="74" r="2.5"/>
+<circle class="dot" cx="297" cy="126" r="2.5"/>
+<circle class="dot" cx="297" cy="113" r="2.5"/>
+<circle class="dot" cx="297" cy="100" r="2.5"/>
+<circle class="dot" cx="297" cy="87" r="2.5"/>
+<circle class="dot" cx="310" cy="126" r="2.5"/>
+<circle class="dot" cx="310" cy="113" r="2.5"/>
+<circle class="dot" cx="310" cy="100" r="2.5"/>
+<circle class="dot" cx="323" cy="126" r="2.5"/>
+<circle class="dot" cx="323" cy="113" r="2.5"/>
+<circle class="dot" cx="336" cy="126" r="2.5"/>
+<circle class="dot" cx="336" cy="113" r="2.5"/>
+<circle class="dot" cx="349" cy="126" r="2.5"/>
+<circle class="dot" cx="349" cy="113" r="2.5"/>
+<circle class="dot" cx="362" cy="126" r="2.5"/>
+<circle class="dot" cx="375" cy="126" r="2.5"/>
+<circle class="dot" cx="388" cy="126" r="2.5"/>
+<circle class="dot" cx="401" cy="126" r="2.5"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Kinetic Atlas</h1>
+<p class="cover-tag">Alcohol, caffeine and nicotine, modelled on one timeline.</p>
+</div>
+</div></div>
+<p class="g-note">Live render of brand/components.css on brand/tokens.css. Rules: README.md, components.md, charts.md.</p>
+<section class="g-sec"><h2 class="g-h">Brand <span>Identity</span></h2>
+<div class="ds-row" style="gap:36px">
+<a class="brand" href="#"><span class="brandmark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 16.5h4l3.2-9 5.1 12 3-7H23" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brandname">Kinetic Atlas</span></a>
+<span class="brandmark" aria-label="Kinetic Atlas mark"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 16.5h4l3.2-9 5.1 12 3-7H23" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</div>
+</section>
+<section class="g-sec"><h2 class="g-h">Button <span>Actions</span></h2>
+<div class="ds-row">
+<button class="btn btn-primary"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg>Log intake</button>
+<button class="btn">Cancel</button>
+<button class="btn btn-ghost"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>Profile</button>
+<button class="btn btn-outline"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg>Log intake</button>
+</div><div class="ds-row" style="padding-top:0">
+<button class="btn btn-small"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Export JSON</button>
+<button class="btn btn-small btn-ghost"><svg class="ic" aria-hidden="true"><use href="#i-undo"/></svg>Undo</button>
+<button class="btn btn-small btn-danger">Clear all</button>
+<button class="btn btn-small" disabled><svg class="ic" aria-hidden="true"><use href="#i-upload"/></svg>Import</button>
+<button class="linkbtn">How this is calculated</button>
+</div>
+</section>
+<section class="g-sec"><h2 class="g-h">Tag <span>Status</span></h2>
+<div class="ds-row">
+<span class="tag">Profile not set</span>
+<span class="tag green">Profile set</span>
+<span class="badge-status">Clear</span>
+<span class="badge-status warn">Above guide</span>
+<span class="badge-status urgent">High</span>
+</div>
+</section>
+<section class="g-sec"><h2 class="g-h">Tabs <span>Navigation</span></h2>
+<div class="ds-row" style="justify-content:space-between">
+<div class="tabs" role="tablist"><button class="alcohol active">Alcohol</button><button class="caffeine">Caffeine</button><button class="nicotine">Nicotine</button><button class="all">Combined</button></div>
+<div class="pill-btns"><button>24 h</button><button class="active">48 h</button><button>72 h</button></div>
+</div><div class="ds-row" style="padding-top:0"><div class="tabs"><button class="alcohol">Alcohol</button><button class="caffeine">Caffeine</button><button class="nicotine">Nicotine</button><button class="all active">Combined</button></div>
+<div class="pill-btns"><button class="active">Relative</button><button>Log mg</button></div></div>
+</section>
+<section class="g-sec"><h2 class="g-h">Panel <span>Layout</span></h2>
+<div class="ds-stack"><section class="panel panel-pad"><div class="panel-title"><div><h2>Timeline</h2><p>Estimated amount in the body, past 96 h to next 72 h</p></div><button class="btn btn-small btn-ghost"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Export PNG</button></div><p style="font-size:12px">Panels hold one job each: the timeline, history, bedtime outlook or guidance.</p></section></div>
+</section>
+<section class="g-sec"><h2 class="g-h">MetricCard <span>Data</span></h2>
+<div class="ds-grid3"><div class="metric alcohol"><div class="compound"><span class="compound-dot"></span>Alcohol</div>
+<div class="metric-value"><strong>0.038</strong><span>% BAC</span></div>
+<div class="metric-foot">Peak <b>0.051 at 21:40</b></div><div class="meter"><span style="width:46%"></span></div></div><div class="metric caffeine"><div class="compound"><span class="compound-dot"></span>Caffeine</div>
+<div class="metric-value"><strong>142</strong><span>mg</span></div>
+<div class="metric-foot">Peak <b>168 mg at 15:10</b></div><div class="meter"><span style="width:58%"></span></div></div><div class="metric nicotine"><div class="compound"><span class="compound-dot"></span>Nicotine</div>
+<div class="metric-value"><strong>0.8</strong><span>mg</span></div>
+<div class="metric-foot">Peak <b>1.4 mg at 13:05</b></div><div class="meter"><span style="width:22%"></span></div></div></div>
+</section>
+<section class="g-sec"><h2 class="g-h">StatBox <span>Data</span></h2>
+<div class="ds-stack"><div class="stats-row">
+<div class="statbox"><span>Now</span><strong>142 <small>mg</small></strong></div>
+<div class="statbox"><span>At bedtime · 23:00</span><strong>61 <small>mg</small></strong></div>
+<div class="statbox"><span>Peak · next 24 h</span><strong>168 <small>mg</small></strong></div>
+</div></div>
+</section>
+<section class="g-sec"><h2 class="g-h">Insight <span>Data</span></h2>
+<div class="ds-grid3" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="insight"><div class="micro">Caffeine at bedtime</div><div class="big">61 mg</div><div class="kpi-mini"><p>Guide 50 mg</p><span class="badge-status warn">Above guide</span></div></div>
+<div class="insight"><div class="micro">Alcohol clear by</div><div class="big">02:15</div><div class="kpi-mini"><p>3 h 15 min after bed</p><span class="badge-status">Estimate</span></div></div>
+</div>
+</section>
+<section class="g-sec"><h2 class="g-h">InfoCard <span>Guidance</span></h2>
+<div class="ds-stack">
+<div class="info-card"><span class="info-sev">Info</span><b>Caffeine lingers into the night</b><p>About half of this afternoon's coffee is still in your system at 23:00.</p></div>
+<div class="info-card caution"><span class="info-sev">Caution</span><b>Above the UK low-risk guide</b><p>This week's total is 17 units. The guide is no more than 14 units a week, spread over 3 or more days.</p></div>
+<div class="info-card urgent"><span class="info-sev">Urgent</span><b>Estimated BAC is very high</b><p>If someone is unconscious, breathing abnormally or having a seizure, call 999 now.</p></div>
+</div>
+</section>
+<section class="g-sec"><h2 class="g-h">LogItem <span>Data</span></h2>
+<div class="ds-stack" style="gap:0"><div class="log-item"><span class="log-symbol alcohol"><svg class="ic" aria-hidden="true"><use href="#i-alcohol"/></svg></span><div class="log-main"><b>UK pint · beer 4.5%</b><small>Today 20:10 · with dinner</small></div><div class="log-dose"><b>2.6 units</b><small>20.2 g</small></div><div class="log-actions"><button aria-label="Edit"><svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></button><button aria-label="Duplicate"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button><button aria-label="Delete"><svg class="ic" aria-hidden="true"><use href="#i-delete"/></svg></button></div></div><div class="log-item"><span class="log-symbol caffeine"><svg class="ic" aria-hidden="true"><use href="#i-caffeine"/></svg></span><div class="log-main"><b>Filter coffee · mug</b><small>Today 15:05</small></div><div class="log-dose"><b>140 mg</b><small>1 serving</small></div><div class="log-actions"><button aria-label="Edit"><svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></button><button aria-label="Duplicate"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button><button aria-label="Delete"><svg class="ic" aria-hidden="true"><use href="#i-delete"/></svg></button></div></div><div class="log-item"><span class="log-symbol nicotine"><svg class="ic" aria-hidden="true"><use href="#i-nicotine"/></svg></span><div class="log-main"><b>Nicotine pouch · 6 mg</b><small>Today 12:40 · 30 min</small></div><div class="log-dose"><b>6 mg</b><small>~1.2 mg absorbed</small></div><div class="log-actions"><button aria-label="Edit"><svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></button><button aria-label="Duplicate"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button><button aria-label="Delete"><svg class="ic" aria-hidden="true"><use href="#i-delete"/></svg></button></div></div></div>
+</section>
+<section class="g-sec"><h2 class="g-h">Field <span>Forms</span></h2>
+<div class="ds-stack"><div class="formgrid">
+<div class="field full"><label for="p">Drink</label><select id="p"><option>UK pint · beer 4.5%</option><option>Medium wine · 175 mL 12%</option></select><div class="formhint">Each preset is an editable starting point, not a laboratory value.</div></div>
+<div class="field"><label for="q">Servings / items</label><input class="input" id="q" type="number" value="1"></div>
+<div class="field"><label for="n">Note</label><input class="input" id="n" placeholder="Optional, e.g. with dinner"></div>
+</div>
+<div class="live-preview"><div><small>Calculated ethanol dose</small><b>2.6 units · 20.2 g</b></div><span>Label strength and exact pour size matter.</span></div>
+<div class="feedback">Added to timeline.</div></div>
+</section>
+<section class="g-sec"><h2 class="g-h">ChartLegend <span>Charts</span></h2>
+<div class="ds-stack">
+<div class="legend"><span><i style="background:var(--caf)"></i>Caffeine estimate</span><span><i class="band"></i>Uncertainty band</span><span><i class="now"></i>Now</span><span><i class="bed"></i>Bedtime</span><span><i class="dose" style="background:var(--caf)"></i>Dose</span><span class="legend-unit">mg in body</span></div>
+<div><div class="chart-tooltip"><strong>Sun 23 Nov · 21:40</strong><span><i style="background:var(--alc)"></i>Alcohol 0.051 % BAC</span><span><i style="background:var(--caf)"></i>Caffeine 96 mg</span><span><i style="background:var(--nic)"></i>Nicotine 0.4 mg</span><div class="tip-doses"><span><i style="background:var(--alc)"></i>21:35 · 2.6 units · UK pint · beer 4.5%</span></div></div></div>
+</div>
+</section>
+<section class="g-sec"><h2 class="g-h">EmptyState <span>Feedback</span></h2>
+<div class="ds-stack"><div class="empty-state"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg><b>Nothing logged yet</b><p>Use the Log button above to add a drink, coffee or nicotine product and see it on the timeline.</p></div></div>
+</section>
+<section class="g-sec"><h2 class="g-h">Notice <span>Feedback</span></h2>
+<div class="ds-stack">
+<p class="notice" role="alert">Browser storage is unavailable. Export your data before closing this page.</p>
+<div class="foot-alert"><strong>In an emergency, call 999.</strong> If someone is unconscious, breathing abnormally, having a seizure, or you suspect alcohol poisoning, call 999 immediately. For urgent advice that is not an emergency, call NHS 111.</div>
+</div>
+</section>
+<section class="g-sec"><h2 class="g-h">Toast <span>Feedback</span></h2>
+<div class="ds-row"><div class="toast" role="status">Imported 14 entries.</div></div>
+</section>
+<section class="g-sec"><h2 class="g-h">Dialog <span>Overlays</span></h2>
+<div class="ds-stack"><div class="ds-dialog" role="dialog" aria-labelledby="dt">
+<div class="dialog-head"><div><h2 id="dt">Model, evidence &amp; limitations</h2><p>How each estimate is calculated and where the numbers come from.</p></div><button class="btn btn-small" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+<div class="dialog-body"><div class="method-code">C(t) = Σ dose · ka/(ka − ke) · (e^(−ke·t) − e^(−ka·t))
+ke = ln 2 / half-life</div></div>
+<div class="dialog-footer"><span style="font-size:11px;color:var(--muted)">Education only. Not medical advice.</span><button class="btn btn-primary">Done</button></div>
+</div></div>
+</section>
+</main>
+</body>
+</html>

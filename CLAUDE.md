@@ -46,6 +46,13 @@ Entry shape (also the future DB row): `{id, type: 'alcohol'|'caffeine'|'nicotine
 - Locale is UK (`en-GB` formatting, UK units, NHS/999 wording).
 - The "Data handling" block in `#scienceDialog` promises "no outbound requests" and local-only storage. Rewrite it as soon as any network or backend behaviour lands.
 
+## Brand and design system
+
+- `brand/` is the reference for the look, voice and chart style. Read `brand/README.md` before any UI, copy, chart or export change.
+- `brand/tokens.json` is the source of truth for colours, type, spacing, radii and shadows. After editing it, run `python3 brand/build_tokens_css.py` to regenerate `brand/tokens.css`.
+- `kinetic_atlas.html` still holds its own copy of these values (`:root` block and literal colours in `renderChart`). If you change a value the app uses, change it in `tokens.json` and in the app in the same change. Don't introduce raw colours that have no token.
+- The web app should load `brand/tokens.css` and `brand/components.css` instead of copying values.
+
 ## Migration direction (backend, DB, users)
 
 - Move the PK model (section 4) out first, into a standalone module with no DOM dependencies, so the browser and the server can share it and it can be unit-tested.
