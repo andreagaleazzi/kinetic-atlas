@@ -285,6 +285,9 @@ $('scaleButtons').addEventListener('click',event=>{const b=event.target.closest(
 const chart=$('trajectory');chart.tabIndex=0;chart.addEventListener('pointermove',ev=>{if(!chartBounds)return;const rect=chart.getBoundingClientRect(),pos=(ev.clientX-rect.left-chartBounds.pad.l)/chartBounds.gw;hoverT=chartBounds.left+clamp(pos,0,1)*(chartBounds.right-chartBounds.left);renderChart()});chart.addEventListener('pointerleave',()=>{hoverT=null;renderChart()});chart.addEventListener('keydown',ev=>{if(!['ArrowLeft','ArrowRight','Escape'].includes(ev.key))return;ev.preventDefault();if(ev.key==='Escape'){hoverT=null}else{hoverT=clamp((hoverT===null?Date.now():hoverT)+(ev.key==='ArrowRight'?30:-30)*M,chartBounds.left,chartBounds.right)}renderChart()});
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(renderChart,75)});document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderAll()});setInterval(()=>{if(!document.hidden)renderAll()},60000);
 // Storage defaults are normalised and never imply biological measurements.
-state.profile=normalizeProfile(state.profile);renderAll();
+state.profile=normalizeProfile(state.profile);
+// Default chart window: 12h when the next bedtime falls inside it, else 24h (nextSleep is always <24h away).
+{const now=Date.now();horizon=nextSleep(now).bed-now<=12*H?12:24;document.querySelectorAll('#rangeButtons button').forEach(x=>x.classList.toggle('active',Number(x.dataset.range)===horizon))}
+renderAll();
 })();
 </script></body></html>
