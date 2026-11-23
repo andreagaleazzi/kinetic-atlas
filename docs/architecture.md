@@ -1,0 +1,38 @@
+# index.html architecture
+
+Map of the single-file app. `index.html` is the source of truth: if this page and the code disagree, the code wins and this page gets fixed. Lines are thousands of characters long, so find a name with `grep -o '.\{80\}name.\{80\}' index.html`, not by reading lines. Before changing something, check [change-impact.md](change-impact.md).
+
+Last checked against the code: 2026-11-23, commit `ca2bea3`.
+
+## Layout
+
+`<head><style>` → one hidden SVG icon sprite (`<symbol id="i-…">`) → markup (`<main id="top">`, plus `<dialog id="profileDialog">` and `<dialog id="scienceDialog">`) → one `<script>` holding a strict-mode IIFE. No globals leak out.
+
+## Inside the script, in order
+
+1. **Constants and presets.** `KEY='kinetic-atlas-offline-v2'` (storage key), `defaults` (profile), and `P`, the drink/product presets. Presets are **positional arrays**, not objects, and the layout differs by type: alcohol and caffeine use `[id, label, volume, abv|mg, group]`, while nicotine adds duration and absorption fields and keeps its group at index 6. `setEntryType` / `assignPreset` / `getFormDose` read them by index. Nicotine pouches are one `pouch` row plus the `POUCH` table (`{brand: [mg,…]}`, filled into `#pouchBrand` / `#pouchMg` by `fillPouch`); the brand only sets the label and mg. `presetData` maps the legacy ids `pouch3`…`pouch12` in old saved entries to that row. Also here: `TYPES`, `REGIONS`, `LIMITS`, `TONES`.
+2. **State.** `state = {profile, profileSet, entries[]}`, plus UI vars (`entryType`, `chartType`, `plotScale`, `horizon`, `series`, `historyStack`, `editId`, `dupOpen`, `lawRef`). `chartType` is a compound or `'all'` (the Combined tab, drawn by `drawCombined` on a relative 0–1 or log-mg axis per `plotScale`), so it does not always index a series. Every mutation goes through `transaction(fn)`, which pushes an undo snapshot (max 10), calls `persist()`, then `renderAll()`.
+3. **Trust boundaries.** `validateEntry` and `normalizeProfile` clamp and validate everything loaded from storage or JSON import. Import is capped at 2 MB. These define the de facto data schema and become the server-side validation later.
+4. **PK model** (pure functions):
+   - `instantAmount` / `amountFor`: one-compartment model with first-order absorption (`ka`) and elimination (`ke = ln2/half-life`). Intake is spread evenly over `durationMin`.
+   - `alcoholScenario`: the absorbed ethanol fraction (`absorbedFrac`) is converted to BAC with Widmark `r`, then reduced at a constant `beta` %/h down to 0.
+   - `buildSeries(now)`: a 5-minute grid from −96 h to +72 h. Each point holds a central `v` plus `low` and `high` uncertainty bands. Alcohol bands come from r ±0.06 and the clearance range; caffeine and nicotine bands from half-life ×0.7 and ×1.5.
+   - `at`, `peakNext` and `settledTime` interpolate and query `series`.
+   - Pouches: `pouchF(min) = POUCH_FMAX × (1 − e^(−min/POUCH_TAU))`, set when Duration changes on a pouch and still editable.
+5. **Dates and times.** `profile.clock` (`'24h'` default, or `'12h'`) drives every displayed time through `displayTime` / `tf()` / `tickLab` / `hm`. Date and time entry uses plain text fields, not native pickers (their format follows the OS locale): `#entryDate` + `#entryClock` in Log intake, `#pBed` / `#pWake` in Profile, parsed by `parseDate` / `parseClock`. The entry time is read and written only through `getEntryTime()` / `setEntryTime(ms)`. Stored values: entry `time` is ISO, `bed` / `wake` are 24h `HH:MM`.
+6. **Rendering.** `renderAll` recomputes `series`, writes the summary metrics, sleep badges and `#profileHint` inline, then calls `renderChart` (hand-drawn `<canvas>`, DPR-aware, no chart library), `renderHistory`, `renderLedger`, `renderInterpretation` and `renderLaw`. HTML is built from template strings; interpolated user text goes through `esc()`. Icons come from the sprite via `ic(name)` (or `<svg class="ic" aria-hidden="true"><use href="#i-name"/>` in static markup). `renderChart` draws dose markers in the gutter under the x-axis (`doseMarks`) and adds the nearby doses to `#chartTooltip`. `renderInterpretation` hides `#guideSec` unless a card applies to the current data. A `setInterval` runs `renderAll` every 60 s while the tab is visible.
+7. **Wiring.** `addEventListener` calls near the bottom, using delegated clicks (`data-action`, `data-close`). History rows offer `edit`, `duplicate` and `delete`; `duplicateEntry` reuses `editEntry`'s prefill and then clears `editId`. Export/import is `exportJSON` (`{app, version:2, profile, entries}`) and `exportCSV`. `exportPNG` saves the chart as shown and labels the image from the DOM (`.legend` spans, `#plotUnit`, `#plotNote`).
+
+## Entry shape (also the future DB row)
+
+`{id, type: 'alcohol'|'caffeine'|'nicotine', preset, label, time: ISO string, note, qty, durationMin, dose, ka, ...}`, plus type-specific fields: alcohol `units, volume, abv, food`; caffeine `mg, volume`; nicotine `mg, fraction`. IDs are generated on the client.
+
+## Region and legal lines
+
+`profile.region` (default `'uk'`) only picks which `REGIONS` entry `renderLaw` shows in `#sciLaw` (drink-driving limits, legal age, drinking guideline, emergency number, sources). It is reference text: it does not change the model, the UK unit counts or the UK guidance cards.
+
+`LIMITS` holds the legal BAC lines per jurisdiction (`[BAC %, canvas label, legal effect]`, plus a `note` for zero-tolerance rules that can't be drawn). The `#lawRef` menu above the alcohol chart sets `lawRef`: `''` keeps the default .05/.08/.15 effect lines, and a jurisdiction id swaps them for its legal lines, adds the `#lawKey` explanation under the chart and adds the jurisdiction to `#plotUnit` (so `exportPNG` labels it).
+
+## Science dialog
+
+`#scienceDialog` lists the model parameters, guidance thresholds (EFSA caffeine limits, UK units), cited sources, the pouch parameters and brand strengths (`#sciPouch`), the region text (`#sciLaw`) and a "Data handling" block that promises no outbound requests and local-only storage.

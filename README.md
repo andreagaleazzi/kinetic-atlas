@@ -33,7 +33,9 @@ Browser storage is tied to where the page is opened from. If you used the old `k
 | `brand/` | Design system: tokens, components, chart rules, logos (start with `brand/README.md`) |
 | `docs/FIXES.md` | Open fixes and to-dos |
 | `docs/FIXES_ARCHIVE.md` | Shipped fixes |
-| `CLAUDE.md` | Architecture notes and conventions for contributors and coding agents |
+| `docs/architecture.md` | Map of `index.html`: script sections, state, PK model, entry shape |
+| `docs/change-impact.md` | What else must change when you change something |
+| `CLAUDE.md` | Entry point for coding agents: routing and conventions |
 
 ## Contributing
 
