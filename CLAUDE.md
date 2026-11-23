@@ -6,20 +6,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Kinetic Atlas: a personal exposure tracker that models alcohol (BAC %), caffeine (mg) and nicotine (mg) over time from logged intake. It is for education, not medical use, and the UI says so.
 
-**Today** it is one self-contained file, `kinetic_atlas.html` (~120 KB, minified-style long lines). It has no build step, no dependencies and no network calls, and it stores data in `localStorage`.
+**Today** it is one self-contained file, `index.html` (~120 KB, minified-style long lines). It has no build step, no dependencies and no network calls, and it stores data in `localStorage`.
 **Planned:** a proper web app with a backend, a database and user accounts. Keep the current file working until that migration actually starts. Code added now should not block the split described under "Migration direction".
 
 ## Commands
 
-- Run: open `kinetic_atlas.html` in a browser, or serve it with `python3 -m http.server 8000` and visit `/kinetic_atlas.html`.
+- Layout: `index.html` (the whole app), `brand/` (design system), `docs/` (`FIXES.md` backlog, `FIXES_ARCHIVE.md` shipped items), `README.md` (public overview).
+- Run: open `index.html` in a browser, or serve it with `python3 -m http.server 8000` and visit `/` (`index.html`).
 - There is no build, lint or test tooling yet. When you add tests, start with the pharmacokinetic (PK) math (see below). It is pure, and it is the part where a mistake actually matters.
 - Lines are thousands of characters long. Find code with `grep -n` or `grep -o` plus `cut -c`, not by reading whole lines.
 
 ## Git workflow
 
 - After finishing a coherent chunk of work, **ask the user whether to commit it** instead of leaving it uncommitted. Never commit without their go-ahead.
-- Use Conventional Commits: `<type>: <short imperative summary>`, e.g. `feat: add combined timeline tab`, `fix: open Log intake on the viewed compound`, `docs: add icon and time-format items to FIXES.md`. Types: `feat`, `fix`, `docs`, `refactor`, `style`, `test`, `chore`. Add a scope when it helps (`fix(chart): ...`).
-- One logical change per commit. Keep code (`kinetic_atlas.html`) and docs (`CLAUDE.md`, `FIXES.md`) in separate commits unless the docs describe that exact code change and must stay in sync.
+- Use Conventional Commits: `<type>: <short imperative summary>`, e.g. `feat: add combined timeline tab`, `fix: open Log intake on the viewed compound`, `docs: add icon and time-format items to docs/FIXES.md`. Types: `feat`, `fix`, `docs`, `refactor`, `style`, `test`, `chore`. Add a scope when it helps (`fix(chart): ...`).
+- One logical change per commit. Keep code (`index.html`) and docs (`CLAUDE.md`, `README.md`, `docs/`) in separate commits unless the docs describe that exact code change and must stay in sync.
 
 ## Architecture (single file)
 
@@ -54,7 +55,7 @@ Entry shape (also the future DB row): `{id, type: 'alcohol'|'caffeine'|'nicotine
 
 - `brand/` is the reference for the look, voice and chart style. Read `brand/README.md` before any UI, copy, chart or export change.
 - `brand/tokens.json` is the source of truth for colours, type, spacing, radii and shadows. After editing it, run `python3 brand/build_tokens_css.py` to regenerate `brand/tokens.css`.
-- `kinetic_atlas.html` still holds its own copy of these values (`:root` block and literal colours in `renderChart`). If you change a value the app uses, change it in `tokens.json` and in the app in the same change. Don't introduce raw colours that have no token.
+- `index.html` still holds its own copy of these values (`:root` block and literal colours in `renderChart`). If you change a value the app uses, change it in `tokens.json` and in the app in the same change. Don't introduce raw colours that have no token.
 - The web app should load `brand/tokens.css` and `brand/components.css` instead of copying values.
 
 ## Migration direction (backend, DB, users)

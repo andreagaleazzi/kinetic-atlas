@@ -22,7 +22,7 @@ This folder is the reference for how Kinetic Atlas looks, sounds and draws its c
 **Rules for changes**
 
 - Change a value in `tokens.json` first, regenerate `tokens.css`, then update the app. Never add a new raw colour to the app without adding it here.
-- `kinetic_atlas.html` does not load these files yet; it carries its own copy of the values in its `:root` block and canvas code. When you change a token the app uses, change it in both places in the same commit. Token names match the app's CSS variables where one exists (`--bg`, `--primary`, `--alc`, ...).
+- `index.html` does not load these files yet; it carries its own copy of the values in its `:root` block and canvas code. When you change a token the app uses, change it in both places in the same commit. Token names match the app's CSS variables where one exists (`--bg`, `--primary`, `--alc`, ...).
 - The planned web app should load `tokens.css` and `components.css` directly instead of copying values.
 - A hosted, browsable copy lives in the Kinetic Atlas Design System artifact (https://claude.ai/artifact/H2osk36of2RTuzyq5ivKAP, private to its owner). This folder is the version-controlled source; if the two differ, this folder wins.
 

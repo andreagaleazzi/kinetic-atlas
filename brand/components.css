@@ -1,4 +1,4 @@
-/* Kinetic Atlas components. Class names match kinetic_atlas.html; literal colours replaced by tokens. */
+/* Kinetic Atlas components. Class names match index.html; literal colours replaced by tokens. */
 body { margin: 0; background: radial-gradient(ellipse 850px 480px at 8% -12%, var(--glow-teal), transparent 75%), radial-gradient(ellipse 1100px 600px at 97% -13%, var(--glow-violet), transparent 70%), var(--bg); color: var(--text); font: 14px/1.55 var(--font-sans); }
 * { box-sizing: border-box; }
 button, input, select, textarea { font: inherit; }
