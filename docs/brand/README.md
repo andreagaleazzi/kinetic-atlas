@@ -6,13 +6,15 @@ The look is a night instrument panel. Ink-navy grounds, three luminous signal co
 
 ## Using this folder
 
-This folder is the reference for how Kinetic Atlas looks, sounds and draws its charts. Read it before you change any UI, add a screen, make an export, or build the planned web app.
+This folder is the branding and style core of the Kinetic Atlas web app: how it looks, sounds and draws its charts. It holds stable reference, not app code. Today `index.html` copies its values; the planned web app should use them directly. Read it before you change any UI, add a screen, make an export, or build the planned web app.
+
+To check a change, regenerate `tokens.css` if tokens moved, then open `gallery.html` and look at every component.
 
 | File | What it is | Who it's for |
 | --- | --- | --- |
 | `README.md` | This brand book: personality, voice, colour, type, layout, motion, icons, accessibility | Everyone, first |
 | `tokens.json` | Source of truth for every colour, text style, spacing step, radius, shadow and breakpoint, each with a usage note | Agents and tools |
-| `tokens.css` | The same tokens as CSS custom properties. Generated: run `python3 brand/build_tokens_css.py` after editing `tokens.json` | Code |
+| `tokens.css` | The same tokens as CSS custom properties. Generated: run `python3 docs/brand/build_tokens_css.py` after editing `tokens.json` | Code |
 | `components.css` | Component styles using the app's class names, built only on `tokens.css` variables | Code |
 | `components.md` | When and how to use each component | Everyone |
 | `charts.md` | Canvas drawing rules for the timeline | Anyone touching `renderChart` or exports |

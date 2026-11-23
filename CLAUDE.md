@@ -15,14 +15,14 @@ Kinetic Atlas: a personal exposure tracker that models alcohol (BAC %), caffeine
 |---|---|
 | Find or understand code in `index.html` | `docs/architecture.md` |
 | Change anything (what else must move in the same commit) | `docs/change-impact.md` |
-| UI, copy, chart or export look | `brand/README.md` (tokens: `brand/tokens.json`) |
+| UI, copy, chart or export look (branding and style core) | `docs/brand/README.md` (tokens: `docs/brand/tokens.json`) |
 | Pick up or ship a fix | `docs/FIXES.md` (backlog), `docs/FIXES_ARCHIVE.md` (shipped) |
 | Public overview | `README.md` |
 
 ## Commands
 
 - Run: open `index.html` in a browser, or `python3 -m http.server 8000` and visit `/`.
-- Tokens: after editing `brand/tokens.json`, run `python3 brand/build_tokens_css.py`.
+- Tokens: after editing `docs/brand/tokens.json`, run `python3 docs/brand/build_tokens_css.py`.
 - No build, lint or test tooling yet. When adding tests, start with the PK math: it is pure, and it is where a mistake matters.
 - Lines are thousands of characters long. Find code with `grep -n` or `grep -o` plus `cut -c`, not by reading whole lines.
 

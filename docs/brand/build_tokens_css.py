@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate brand/tokens.css from brand/tokens.json. Run: python3 brand/build_tokens_css.py"""
+"""Regenerate docs/brand/tokens.css from docs/brand/tokens.json. Run: python3 docs/brand/build_tokens_css.py"""
 import json, pathlib
 
 here = pathlib.Path(__file__).parent

@@ -30,7 +30,7 @@ Browser storage is tied to where the page is opened from. If you used the old `k
 | Path | What it is |
 | --- | --- |
 | `index.html` | The whole app: markup, styles and script |
-| `brand/` | Design system: tokens, components, chart rules, logos (start with `brand/README.md`) |
+| `docs/brand/` | Branding and style core: tokens, components, chart rules, logos (start with `docs/brand/README.md`) |
 | `docs/FIXES.md` | Open fixes and to-dos |
 | `docs/FIXES_ARCHIVE.md` | Shipped fixes |
 | `docs/architecture.md` | Map of `index.html`: script sections, state, PK model, entry shape |
