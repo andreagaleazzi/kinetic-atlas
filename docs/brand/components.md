@@ -4,10 +4,10 @@ Usage rules for each component. Styles are in `components.css` (load `tokens.css
 
 ## Brand
 
-The lockup: the pulse-trace brandmark on a mint tile, followed by the name in `brandname`.
+The lockup: the three-curve brandmark on a mint tile, followed by the name in `brandname`.
 
 - Consumer provides: nothing; use it as-is in the top-left of the top bar, linking to the top of the page.
-- The tile is 43px, `radius-brand`, `brand-tile` fill, `shadow-brand` halo. The trace is 26px, 2.4px stroke, round caps, in `brand-ink`.
+- The tile is 43px, `radius-brand`, `brand-tile` fill, `shadow-brand` halo. The trace is 26px, 2px stroke, round caps, in `brand-ink`.
 - Gap between mark and name is `space-4` (13px). The name is "Kinetic Atlas", two words, title case, weight 850.
 - The mark may stand alone (favicon, app icon, tight spaces). The name never appears without the mark in the app chrome.
 - Don't recolour the tile with a compound hue, outline it, or put the trace on a dark ground without the tile.
