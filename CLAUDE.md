@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Kinetic Atlas: a personal exposure tracker that models alcohol (BAC %), caffeine (mg) and nicotine (mg) over time from logged intake. It is for education, not medical use, and the UI says so.
+Kinetic Atlas: a personal substance tracker that models alcohol (BAC %), caffeine (mg) and nicotine (mg) over time from logged intake. It is for education, not medical use, and the UI says so.
 
 **Today** it is one self-contained file, `index.html` (~130 KB, minified-style long lines): no build step, no dependencies, no network calls, data in `localStorage`.
 **Planned:** a web app with a backend, a database and user accounts. Keep the current file working until that migration starts, and don't block it (see below).

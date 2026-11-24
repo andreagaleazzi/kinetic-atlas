@@ -1,6 +1,6 @@
 # Kinetic Atlas
 
-A personal exposure tracker. Log alcohol, caffeine and nicotine intake and see an estimated blood alcohol concentration (BAC %), caffeine (mg) and nicotine (mg) curve over time, with uncertainty bands, the next peak, and UK guidance.
+A personal substance tracker. Log alcohol, caffeine and nicotine intake and see an estimated blood alcohol concentration (BAC %), caffeine (mg) and nicotine (mg) curve over time, with uncertainty bands, the next peak, and UK guidance.
 
 **For education only. Not medical advice, and never a way to decide whether you are fit or legal to drive.**
 

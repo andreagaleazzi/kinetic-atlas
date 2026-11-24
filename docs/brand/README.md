@@ -1,6 +1,6 @@
 # Kinetic Atlas brand
 
-Kinetic Atlas is a personal exposure lab. It models alcohol, caffeine and nicotine in the body over time and draws them on one live timeline. It is for education, not medical use.
+Kinetic Atlas is a personal substance tracker. It models alcohol, caffeine and nicotine in the body over time and draws them on one live timeline. It is for education, not medical use.
 
 The look is a night instrument panel. Ink-navy grounds, three luminous signal colours, heavy tight numerals, soft big corners. It is modern and slightly aggressive in its type and contrast, and warm underneath: peach and mint hues, plain human sentences, and safety guidance that never scolds.
 
