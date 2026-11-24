@@ -32,4 +32,5 @@ Before changing something, find it here: **Hits** lists what must change in the 
 | UI, copy, chart or export look | Read `docs/brand/README.md` first; `docs/brand/charts.md` for charts. | — |
 | A component's look or class names | `docs/brand/components.css`, `components.md` and `gallery.html` together, plus the matching rules in `index.html`'s `<style>`. | `tokens.json`, unless a value changes. |
 | Anything that sends a request or adds a backend | Rewrite the "Data handling" block in `#scienceDialog`, the privacy, GDPR and cookie text in `#legalDialog` (it promises no collection, no cookies and no controller) and the Privacy section of `README.md`. Adding any cookie or a second storage key means updating "Cookies & storage" there too. | — |
+| The page title, tagline, brand look or site URL | The `og:*` / `twitter:card` tags in `index.html`'s `<head>`, and `/og.png`: edit `docs/brand/og.html`, then re-render with the command at its top. | — |
 | A fix from `docs/FIXES.md` | Move the item to `docs/FIXES_ARCHIVE.md` when it ships. | — |
