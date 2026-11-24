@@ -30,7 +30,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .intro .linkbtn:hover { color: var(--primary); }
 .c-alc { color: var(--alc); } .c-caf { color: var(--caf); } .c-nic { color: var(--nic); }
 @media (max-width: 1120px) { .intro h1 { font-size: 29px; line-height: 1.22; } }
-@media (max-width: 680px) { .intro { margin-bottom: 16px; } .intro h1 { font-size: 22px; } }
+@media (max-width: 680px) { .intro { margin-bottom: 16px; } .intro h1 { font-size: 26px; } }
 
 /* buttons */
 .btn { display: inline-flex; justify-content: center; align-items: center; gap: var(--space-2); padding: 9px 14px; border: 1px solid var(--border2); border-radius: var(--radius-control); background: var(--control); color: var(--text); font-weight: 700; font-size: 12px; transition: .15s ease; min-height: var(--control-h); }
