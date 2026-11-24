@@ -15,7 +15,6 @@
   .name { margin:0; font-size:132px; line-height:.92; font-weight:850; letter-spacing:-.045em; }
   .tag { max-width:440px; margin:22px 0 0 6px; font-size:26px; line-height:34px; color:var(--muted); }
   .art { position:absolute; right:0; top:0; }
-  .mint, .dot { fill:var(--primary); }
   .alc { fill:var(--alc); }
   .caf { fill:var(--caf); }
   .nic { fill:var(--nic); }
@@ -23,22 +22,17 @@
 </head>
 <body>
 <svg class="mark" width="86" height="86" viewBox="0 0 43 43" fill="none" aria-hidden="true"><rect width="43" height="43" rx="14" fill="#b1ead1"/><path transform="translate(8.5 8.5)" d="M2.75 20C3.51 16.4 4.27 15 5.32 15C6.93 15 8.17 20 12.25 20M7.66 17.26C8.41 12.8 9.2 11 10.22 11C12.09 11 13.52 20 18.25 20M12.37 13.92C13.1 7.95 13.87 5.5 14.86 5.5C16.81 5.5 18.3 20 23.25 20" stroke="#11241d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<!-- the gallery cover's staircase at 1.5x: primary bleeds off the top, nicotine off the right, bottoms one line 33px above the edge -->
+<!-- the brandmark's three dose curves at 36x, filled in the compound hues, back to front: each starts later and peaks higher, the smaller in front; a bg-coloured outline parts them; baseline one line 33px above the edge, the tallest tail bleeding off the right -->
 <svg class="art" width="620" height="630" viewBox="0 0 620 630" aria-hidden="true">
-<rect class="mint" x="0" y="-32" width="198" height="629" rx="32"/>
-<rect class="alc" x="224" y="297" width="132" height="300" rx="32"/>
-<rect class="caf" x="382" y="387" width="132" height="210" rx="32"/>
-<rect class="nic" x="540" y="489" width="213" height="108" rx="32"/>
-<g id="dots"></g>
+<g transform="translate(-99 -123) scale(36)" stroke="var(--bg)" stroke-width=".33" stroke-linejoin="round">
+<path class="caf" d="M11.7 20C12.8 8 13.87 5.5 14.86 5.5C16.81 5.5 18.3 20 23.25 20Z"/>
+<path class="alc" d="M7 20C7.9 13 9.2 11 10.22 11C12.09 11 13.52 20 18.25 20Z"/>
+<path class="nic" d="M2.75 20C3.51 16.4 4.27 15 5.32 15C6.93 15 8.17 20 12.25 20Z"/>
+</g>
 </svg>
 <div class="words">
 <h1 class="name">Kinetic<br>Atlas</h1>
 <p class="tag">Alcohol, caffeine and nicotine, modelled on one timeline.</p>
 </div>
-<script>
-// dot grid from the cover: 20px pitch, column heights decaying 7 to 1, floating above the caffeine slab
-const g = document.getElementById('dots');
-[7,6,5,4,3,2,2,2,1,1,1,1].forEach((h, c) => { for (let r = 0; r < h; r++) g.insertAdjacentHTML('beforeend', `<circle class="dot" cx="${394 + c*20}" cy="${345 - r*20}" r="4"/>`); });
-</script>
 </body>
 </html>
