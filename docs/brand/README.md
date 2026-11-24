@@ -45,7 +45,7 @@ To check a change, regenerate `tokens.css` if tokens moved, then open `gallery.h
 - Lead buttons with a verb: "Log intake", "Export CSV", "Clear all". Icon first when there is one: plus before "Log intake", download before "Export JSON", undo before "Undo".
 - Say what the model is and is not, plainly: "Each preset is an editable starting point, not a laboratory value." "The alcohol distribution coefficient r is a coarse proxy for body water, not a biological sex test."
 - Name uncertainty, never hide it. Every estimate has a band; copy refers to it ("Band: r ±0.06 and clearance range").
-- Safety copy is direct and calm: "In an emergency, call 999. If someone is unconscious, breathing abnormally, having a seizure, or you suspect alcohol poisoning, call 999 immediately."
+- Safety copy is direct and calm: "Symptoms always matter more than any number shown here: in an emergency, call 999; for urgent advice that is not an emergency, call NHS 111."
 - No exclamation marks, no emoji as decoration, no moralising ("you should cut down"). Guidance states the fact and the threshold.
 - Empty states say what to do next: "Nothing logged yet. Use the Log button above to add a drink, coffee or nicotine product and see it on the timeline."
 
@@ -65,7 +65,7 @@ To check a change, regenerate `tokens.css` if tokens moved, then open `gallery.h
 
 Never swap them, never use them for anything else, and never use them for state. Compound hues differ in hue and lightness, but always pair them with a label or icon as well. The Combined view marks itself with a three-stop gradient bar `alc → caf → nic`; that is the only gradient made from them.
 
-**State:** `warn` (caution) and `danger` (urgent) are for severity only. Status surfaces come in ink / bg / border triplets: `success-*`, `badge-*`, `warn-*`, `urgent-*`, `danger-*`, `notice-*`, `alert-*`, `live-*`. Always use the full triplet; never put `warn` text on `urgent-bg`. Severity is always also written as a word (`micro` label: CAUTION, URGENT).
+**State:** `warn` (caution) and `danger` (urgent) are for severity only. Status surfaces come in ink / bg / border triplets: `success-*`, `badge-*`, `warn-*`, `urgent-*`, `danger-*`, `notice-*`, `live-*`. Always use the full triplet; never put `warn` text on `urgent-bg`. Severity is always also written as a word (`micro` label: CAUTION, URGENT).
 
 ## Typography
 

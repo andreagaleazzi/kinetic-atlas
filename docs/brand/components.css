@@ -145,8 +145,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .empty-state .ic { display: block; width: 28px; height: 28px; margin: 0 auto; }
 .empty-state p { font-size: 12px; }
 .notice { border: 1px solid var(--notice-border); background: var(--notice-bg); padding: 10px 13px; border-radius: var(--radius-input); font-size: 11px; color: var(--notice-ink); }
-.foot-alert { border: 1px solid var(--alert-border); background: var(--alert-bg); border-radius: var(--radius-card); padding: 12px 15px; color: var(--alert-ink); font-size: 12px; }
-.foot-alert strong { color: var(--alert-strong); }
 
 /* chart legend and tooltip */
 .legend { display: flex; flex-wrap: wrap; gap: 8px 17px; align-items: center; border-top: 1px solid var(--border); padding-top: 15px; }

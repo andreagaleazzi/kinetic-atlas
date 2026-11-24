@@ -138,11 +138,10 @@ What a list shows before it has data: a 28px spark icon, a short bold line and o
 
 ## Notice
 
-Two inline messages. `notice` reports a problem with the app or data; `foot-alert` is the permanent emergency guidance in the footer.
+One inline message. `notice` reports a problem with the app or data. Emergency guidance (999, then NHS 111) is a sentence in the footer disclaimer, not a component.
 
 - `notice`: `notice-*` triplet, `radius-input`, `role="alert"`. Say what went wrong and what to do ("Export your data before closing this page.").
-- `foot-alert`: `alert-*` triplet. Lead with the action in `alert-strong`. Always 999 and NHS 111, in that order.
-- Neither is dismissible.
+- Not dismissible.
 
 ## Toast
 
