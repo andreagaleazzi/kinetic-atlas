@@ -14,14 +14,15 @@ The lockup: the pulse-trace brandmark on a mint tile, followed by the name in `b
 
 ## Intro
 
-The page's opening statement, above the Now section: a `micro` kicker, one `intro-title` headline and one `body` paragraph.
+The page's opening statement, above the Now section: a `micro` kicker, one `intro-title` headline and, always directly below it, one `small` paragraph.
 
-- Layout: it sits on the same three-column grid as the metric cards below it (`space-4` gap). Kicker and headline span the first two columns; the paragraph fills the third, so it starts on the Nicotine card's left edge and ends on the shell's right edge. The two blocks share a bottom line. Under `bp-lg` (1120px) it stacks and both run the full width. No `max-width` of its own.
+- Layout: one stacked block at every width. Kicker, headline, then the paragraph 10px below, each running from the shell's left edge to its right edge. The paragraph never sits beside the headline. No `max-width` of its own.
 
 - Consumer provides: kicker, headline, paragraph. One per page.
 - In the headline, wrap each compound name in `<span class="c-alc">` (or `c-caf`, `c-nic`). Inside `.intro h1` a span becomes `accent-word`: the curly serif italic, weight 400, 1.18em, in the compound's hue.
 - Only compound names get the accent, and only here. The word is its own label, so the hue is never the only signal.
 - The paragraph tells what the app is for, not how to use it: what happens in the body after intake, what the timeline shows, and that every curve is an estimate. Step-by-step guidance belongs in empty states and dialogs.
+- Write it as a neutral statement of fact, like an instrument's caption: name the thing and what it does ("plots the rise, peak and clearance"). No storytelling, metaphor or drama ("isn't over when you finish it", "that hidden part", "the long tail").
 - Links in the paragraph are quiet `linkbtn`s: the paragraph's own colour, size and weight, a `muted` underline, `primary` on hover. They open the matching dialog and read as part of the sentence ("everything you log", "your profile"), not as calls to action. The primary button already does that job.
 - Don't add a second headline, glow, or a gradient across the three names.
 

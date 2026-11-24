@@ -89,7 +89,7 @@ The page should look drawn on one grid, not assembled from parts. Hold every new
 
 - **Every edge lands on a line that already exists.** The lines are the shell's two edges, the three equal metric columns (`space-4` gap) and the dashboard's two columns (1.84 : 1, `space-5` gap). A block starts and ends on one of them. Never give a block a free-standing `max-width` that stops it in open space.
 - **Text wraps because it reached a shared edge.** If a line breaks while there is empty page beside it, the layout is wrong. Either the block fills its container, or a sibling fills the rest of the row.
-- **Side-by-side blocks share a line.** Align their tops or their bottoms, on purpose. The intro's two blocks share a bottom; panels in a row share a top.
+- **Side-by-side blocks share a line.** Align their tops or their bottoms, on purpose. Metric cards and panels in a row share a top.
 - **Headlines wrap balanced** (`text-wrap: balance`). No single word left on a last line.
 - **The page is left-aligned.** Don't centre a block to deal with leftover space; put the space to work or remove it.
 - **Empty space is a decision.** Gaps between elements are spacing tokens. Any larger void needs a reason you can state.

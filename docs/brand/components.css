@@ -21,16 +21,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .brandname { font-size: 17px; font-weight: 850; letter-spacing: -.04em; }
 
 /* intro */
-.intro { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--space-4); align-items: end; margin: 0 0 24px; }
-.intro > div { grid-column: span 2; }
+.intro { margin: 0 0 24px; }
 .intro .micro { color: var(--muted); text-transform: uppercase; letter-spacing: .11em; font-size: 10px; font-weight: 800; }
-.intro h1 { font-size: min(3vw, 42px); line-height: 1.15; font-weight: 750; margin: 6px 0 0; text-wrap: balance; }
+.intro h1 { font-size: min(3vw, 42px); line-height: 1.15; font-weight: 750; margin: 6px 0 10px; text-wrap: balance; }
 .intro h1 span { font: italic 400 1.18em/1 var(--font-accent); letter-spacing: 0; margin: 0 .03em 0 .06em; }
-.intro > p { font-size: 14px; color: var(--soft); }
+.intro > p { font-size: 12px; color: var(--soft); }
 .intro .linkbtn { font-size: inherit; color: inherit; text-decoration-color: var(--muted); }
 .intro .linkbtn:hover { color: var(--primary); }
 .c-alc { color: var(--alc); } .c-caf { color: var(--caf); } .c-nic { color: var(--nic); }
-@media (max-width: 1120px) { .intro { display: block; } .intro h1 { font-size: 29px; line-height: 1.22; margin-bottom: 10px; } }
+@media (max-width: 1120px) { .intro h1 { font-size: 29px; line-height: 1.22; } }
 @media (max-width: 680px) { .intro { margin-bottom: 16px; } .intro h1 { font-size: 22px; } }
 
 /* buttons */
