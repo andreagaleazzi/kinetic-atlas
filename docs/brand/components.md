@@ -14,7 +14,9 @@ The lockup: the pulse-trace brandmark on a mint tile, followed by the name in `b
 
 ## Intro
 
-The page's opening statement, above the Now section: a `micro` kicker, one `intro-title` headline and one `body` paragraph. Max width 760px.
+The page's opening statement, above the Now section: a `micro` kicker, one `intro-title` headline and one `body` paragraph.
+
+- Layout: it sits on the same three-column grid as the metric cards below it (`space-4` gap). Kicker and headline span the first two columns; the paragraph fills the third, so it starts on the Nicotine card's left edge and ends on the shell's right edge. The two blocks share a bottom line. Under `bp-lg` (1120px) it stacks and both run the full width. No `max-width` of its own.
 
 - Consumer provides: kicker, headline, paragraph. One per page.
 - In the headline, wrap each compound name in `<span class="c-alc">` (or `c-caf`, `c-nic`). Inside `.intro h1` a span becomes `accent-word`: the curly serif italic, weight 400, 1.18em, in the compound's hue.
