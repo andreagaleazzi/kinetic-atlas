@@ -114,4 +114,5 @@
   /* type */
   --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-accent: "Hoefler Text", "Palatino Linotype", Palatino, Georgia, serif;
 }

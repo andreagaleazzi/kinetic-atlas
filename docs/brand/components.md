@@ -12,6 +12,17 @@ The lockup: the pulse-trace brandmark on a mint tile, followed by the name in `b
 - The mark may stand alone (favicon, app icon, tight spaces). The name never appears without the mark in the app chrome.
 - Don't recolour the tile with a compound hue, outline it, or put the trace on a dark ground without the tile.
 
+## Intro
+
+The page's opening statement, above the Now section: a `micro` kicker, one `intro-title` headline and one `body` paragraph. Max width 760px.
+
+- Consumer provides: kicker, headline, paragraph. One per page.
+- In the headline, wrap each compound name in `<span class="c-alc">` (or `c-caf`, `c-nic`). Inside `.intro h1` a span becomes `accent-word`: the curly serif italic, weight 400, 1.18em, in the compound's hue.
+- Only compound names get the accent, and only here. The word is its own label, so the hue is never the only signal.
+- The paragraph tells what the app is for, not how to use it: what happens in the body after intake, what the timeline shows, and that every curve is an estimate. Step-by-step guidance belongs in empty states and dialogs.
+- Links in the paragraph are quiet `linkbtn`s: the paragraph's own colour, size and weight, a `muted` underline, `primary` on hover. They open the matching dialog and read as part of the sentence ("everything you log", "your profile"), not as calls to action. The primary button already does that job.
+- Don't add a second headline, glow, or a gradient across the three names.
+
 ## Button
 
 Buttons are 39px tall (`control-h`), 12px bold labels, `radius-control` corners, a verb first and an icon before the verb when one exists.

@@ -69,10 +69,11 @@ Never swap them, never use them for anything else, and never use them for state.
 
 ## Typography
 
-- One family: Inter, falling back to the system UI stack (`--font-sans`). The offline single-file app makes no network requests, so it shows the system face unless Inter is installed. The web app should self-host Inter as a variable font (weights 400 to 900).
-- Display styles (`metric-value`, `dialog-title`, `insight-value`, `panel-title`, `brandname`, `section-title`, `stat-value`) are 700 to 850 with negative tracking. They carry the edge of the brand; body text stays 400.
+- One working family: Inter, falling back to the system UI stack (`--font-sans`). The offline single-file app makes no network requests, so it shows the system face unless Inter is installed. The web app should self-host Inter as a variable font (weights 400 to 900).
+- Display styles (`intro-title`, `metric-value`, `dialog-title`, `insight-value`, `panel-title`, `brandname`, `section-title`, `stat-value`) are 700 to 850 with negative tracking. They carry the edge of the brand; body text stays 400.
 - Body is `body` at 14px / 1.55. Most interface copy is `small` (12px) or `caption` (11px). Nothing in running text is set larger than 14px.
 - Every number that updates or lines up uses `font-variant-numeric: tabular-nums`.
+- One accent: `accent-word`, a curly serif italic (`--font-accent`: Hoefler Text, then Palatino Linotype, Palatino, Georgia). It sets the three compound names in the intro headline, each in its own hue, at weight 400 against the heavy sans around it. That contrast is the warmth showing through the instrument panel, and it only works if it stays rare: one headline per page, compound names only, never body text, labels, numbers or buttons. The stack is system faces, so the offline app still loads nothing; never use the generic `cursive` (it is Comic Sans on Windows).
 - `micro` is the only uppercase style: 10px, weight 800, tracking 0.11em, used for severity and kicker labels.
 - Formulas use `code` in `--font-mono`, `code-ink` on `track`.
 
