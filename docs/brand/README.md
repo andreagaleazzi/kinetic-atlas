@@ -83,6 +83,19 @@ Never swap them, never use them for anything else, and never use them for state.
 - Radii nest: `radius` 21px on panels and dialogs, `radius-brand` 14px and `radius-card` 12px for cards inside, `radius-control` 11px for buttons, `radius-input` 10px for fields, `radius-xs` 7px for pills inside tracks. An inner element always has a smaller radius than its container.
 - Desktop layout: a 1.84 : 1 two-column dashboard inside a 1510px shell (`shell-max`), the timeline across the top, history on the right. Below `bp-md` (900px) it becomes one column with history directly under the chart. Below `bp-sm` (680px) metric cards compact to value only and lose their glow.
 
+## Composition
+
+The page should look drawn on one grid, not assembled from parts. Hold every new or changed element to these:
+
+- **Every edge lands on a line that already exists.** The lines are the shell's two edges, the three equal metric columns (`space-4` gap) and the dashboard's two columns (1.84 : 1, `space-5` gap). A block starts and ends on one of them. Never give a block a free-standing `max-width` that stops it in open space.
+- **Text wraps because it reached a shared edge.** If a line breaks while there is empty page beside it, the layout is wrong. Either the block fills its container, or a sibling fills the rest of the row.
+- **Side-by-side blocks share a line.** Align their tops or their bottoms, on purpose. The intro's two blocks share a bottom; panels in a row share a top.
+- **Headlines wrap balanced** (`text-wrap: balance`). No single word left on a last line.
+- **The page is left-aligned.** Don't centre a block to deal with leftover space; put the space to work or remove it.
+- **Empty space is a decision.** Gaps between elements are spacing tokens. Any larger void needs a reason you can state.
+- **One of each.** One headline, one primary button per view, one accent face, one hue per compound. Before adding a new pattern, reuse a component from `components.md`; if nothing fits, add the new one there, in `components.css` and in `gallery.html` in the same commit.
+- **Look before you commit.** Screenshot the page at 1600, 1280, 1000 and 500px wide (command in `CLAUDE.md`) and check each against this list. A layout that only works at one width is not finished.
+
 ## Depth, glow and motion
 
 - Depth comes from the lit gradient, the ambient glows and soft halos, not from hard shadows. `shadow-panel` is almost invisible on purpose. Only floating things (`shadow`, `shadow-dialog`) cast a real shadow.

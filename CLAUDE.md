@@ -16,6 +16,7 @@ Kinetic Atlas: a personal exposure tracker that models alcohol (BAC %), caffeine
 | Find or understand code in `index.html` | `docs/architecture.md` |
 | Change anything (what else must move in the same commit) | `docs/change-impact.md` |
 | UI, copy, chart or export look (branding and style core) | `docs/brand/README.md` (tokens: `docs/brand/tokens.json`) |
+| Add or restyle any visible element | `docs/brand/README.md`, "Composition": the alignment and polish rules every element must meet |
 | Pick up or ship a fix | `docs/FIXES.md` (backlog), `docs/FIXES_ARCHIVE.md` (shipped) |
 | Public overview | `README.md` |
 
@@ -23,6 +24,8 @@ Kinetic Atlas: a personal exposure tracker that models alcohol (BAC %), caffeine
 
 - Run: open `index.html` in a browser, or `python3 -m http.server 8000` and visit `/`.
 - Tokens: after editing `docs/brand/tokens.json`, run `python3 docs/brand/build_tokens_css.py`.
+- Check a UI change by eye before committing it: screenshot at each width, then read the images. Every edge should land on the page grid and no text should wrap beside empty space ("Composition" in `docs/brand/README.md`).
+  `for w in 1600 1280 1000 500; do "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars --window-size=$w,900 --screenshot=/tmp/ka-$w.png "file://$PWD/index.html"; done`
 - No build, lint or test tooling yet. When adding tests, start with the PK math: it is pure, and it is where a mistake matters.
 - Lines are thousands of characters long. Find code with `grep -n` or `grep -o` plus `cut -c`, not by reading whole lines.
 
