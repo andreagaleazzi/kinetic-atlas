@@ -28,7 +28,7 @@ Kinetic Atlas: a personal exposure tracker that models alcohol (BAC %), caffeine
 
 ## Git workflow
 
-- After a coherent chunk of work, **ask the user whether to commit it**. Never commit without their go-ahead.
+- After a coherent chunk of work, **commit it without asking**, then tell the user what was committed. Pushing still needs their go-ahead.
 - Conventional Commits: `<type>: <short imperative summary>`, e.g. `feat: add combined timeline tab`, `fix(chart): ...`. Types: `feat`, `fix`, `docs`, `refactor`, `style`, `test`, `chore`.
 - One logical change per commit. Keep code (`index.html`) and docs (`CLAUDE.md`, `README.md`, `docs/`) in separate commits unless the docs describe that exact code change.
 
