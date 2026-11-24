@@ -6,7 +6,7 @@ Last checked against the code: 2026-11-23, commit `ca2bea3`.
 
 ## Layout
 
-`<head><style>` → one hidden SVG icon sprite (`<symbol id="i-…">`) → markup (`<main id="top">`, plus `<dialog id="profileDialog">` and `<dialog id="scienceDialog">`) → one `<script>` holding a strict-mode IIFE. No globals leak out.
+`<head><style>` → one hidden SVG icon sprite (`<symbol id="i-…">`) → markup (`<main id="top">`, plus `<dialog id="profileDialog">`, `<dialog id="scienceDialog">` and `<dialog id="legalDialog">`, the privacy, GDPR, cookie, terms, accessibility and contact text opened from the footer) → one `<script>` holding a strict-mode IIFE. No globals leak out.
 
 ## Inside the script, in order
 

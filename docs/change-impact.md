@@ -31,5 +31,5 @@ Before changing something, find it here: **Hits** lists what must change in the 
 | A colour, type, spacing, radius or shadow | `docs/brand/tokens.json`, then `python3 docs/brand/build_tokens_css.py`, **and** the app's `:root` block and literal colours in `renderChart`. No raw colour without a token. | `docs/brand/tokens.css` by hand: it is generated. |
 | UI, copy, chart or export look | Read `docs/brand/README.md` first; `docs/brand/charts.md` for charts. | — |
 | A component's look or class names | `docs/brand/components.css`, `components.md` and `gallery.html` together, plus the matching rules in `index.html`'s `<style>`. | `tokens.json`, unless a value changes. |
-| Anything that sends a request or adds a backend | Rewrite the "Data handling" block in `#scienceDialog` and the Privacy section of `README.md`. | — |
+| Anything that sends a request or adds a backend | Rewrite the "Data handling" block in `#scienceDialog`, the privacy, GDPR and cookie text in `#legalDialog` (it promises no collection, no cookies and no controller) and the Privacy section of `README.md`. Adding any cookie or a second storage key means updating "Cookies & storage" there too. | — |
 | A fix from `docs/FIXES.md` | Move the item to `docs/FIXES_ARCHIVE.md` when it ships. | — |
