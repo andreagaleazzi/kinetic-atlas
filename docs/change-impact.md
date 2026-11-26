@@ -14,9 +14,9 @@ Before changing something, find it here: **Hits** lists what must change in the 
 
 | Change | Hits (same commit) | Does not hit |
 |---|---|---|
-| A preset in `P` (fields or order) | `setEntryType`, `assignPreset`, `getFormDose`, which read by index. Nicotine's group is at index 6, not 4. Renaming or removing an id: saved entries keep their `preset` id, and editing one falls back via `presetData` to the type's last preset. | Saved curves: entries keep their own `dose` and `ka`. |
+| A preset in `P` (fields or order) | `setEntryType`, `assignPreset`, `getFormDose`, which read by index. Nicotine's group is at index 6, not 4. Renaming or removing an id: saved entries keep their `preset` id, and editing one falls back via `presetData` to the type's last preset. | Saved curves: entries keep their own `dose` and `ka`, except pouches, which always use `POUCH_KA`. |
 | The pouch row, `POUCH` brands or mg | `fillPouch`; the brand strength sources in `#sciPouch`. Keep `presetData`'s `pouch3`…`pouch12` fallback, which old saved entries need. | `pouchF`: the brand sets the label and mg only. |
-| `POUCH_FMAX`, `POUCH_TAU` or `pouchF` | `#sciPouch` parameters and sources. | Brand table. |
+| `POUCH_PH`, `POUCH_KA`, `pouchRel`, `pouchF` or `pouchAmount` | `#sciPouch` parameters, worked values (absorbed % and peak times) and sources; the pouch row's ka is `POUCH_KA`. Changing timing reshapes every saved pouch curve. | Brand table; saved `dose`. |
 | A PK formula or default (`ka`, half-life, `r`, `beta`, bands) | `#scienceDialog` in the same change. Any future PK tests. | Stored entries (the series is recomputed on every render). |
 | `validateEntry` / `normalizeProfile` | They are the data schema and the future server validation. Tighten only; never loosen. Old exports must still import. | Rendering. |
 | The entry shape | `validateEntry`, `exportJSON`, `exportCSV`, `editEntry` (and so `duplicateEntry`), the future DB row. | `KEY`, unless old data can no longer be read. |
