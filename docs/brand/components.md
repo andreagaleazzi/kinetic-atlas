@@ -53,7 +53,7 @@ Tags are pills (`radius-pill`) for a passive fact; status badges are small round
 Two segmented controls on a `track`: compound tabs switch what the chart shows; pill buttons switch a setting of the view.
 
 - **Compound tabs** (`tabs`): 12px at 780. The selected tab gets `tab-active` and a 2px underline in its compound hue. The Combined tab's underline is the `alc → caf → nic` gradient.
-- **Pills** (`pill-btns`): 11px at 750 for range (24 h / 48 h / 72 h) and scale (Relative / Log mg). The selected pill gets `pill-active` and `shadow-pill`.
+- **Pills** (`pill-btns`): 11px at 750 for range (24 h / 48 h / 72 h) and scale (Relative / Log mg). A single pill is an on/off toggle with `aria-pressed` (Blood level). The selected pill gets `pill-active` and `shadow-pill`.
 - Consumer provides: buttons with `active` on the current one, plus `aria-pressed` or a tablist role.
 - Below 680px the compound tabs become a 4-column grid.
 
@@ -125,7 +125,7 @@ Label, control and hint, laid out in a two-column `formgrid` with `space-3` gaps
 
 The legend under the timeline and the tooltip that follows the cursor. Drawing rules for the canvas itself are in the Charts section.
 
-- Legend swatches: an 18×3px line in the compound hue, an 8px band swatch, 2×12px marker lines for now and bedtime, and an 8×7px "Dose" triangle (`i.dose`). The unit sits on the right in `muted`.
+- Legend swatches: an 18×3px line in the compound hue, an 8px band swatch, 2×12px marker lines for now and bedtime, an 8×7px "Dose" triangle (`i.dose`), and an 18×2px dotted line (`i.dotted`) for a secondary curve. The unit sits on the right in `muted`.
 - Tooltip: `tooltip-bg`, `tooltip-border`, `shadow`. The time line is bold `text`; each value line starts with a 7px dot in its hue. Near a dose marker it adds a dose list (`tip-doses`) under a `tooltip-border` hairline, one row per dose with a 7px dot in its hue.
 - Keep the legend text in step with the canvas: PNG export reads it.
 

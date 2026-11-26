@@ -26,7 +26,7 @@ Kinetic Atlas: a personal substance tracker that models alcohol (BAC %), caffein
 - Tokens: after editing `docs/brand/tokens.json`, run `python3 docs/brand/build_tokens_css.py`.
 - Check a UI change by eye before committing it: screenshot at each width, then read the images. Every edge should land on the page grid and no text should wrap beside empty space ("Composition" in `docs/brand/README.md`).
   `for w in 1600 1280 1000 500; do "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars --window-size=$w,900 --screenshot=/tmp/ka-$w.png "file://$PWD/index.html"; done`
-- No build, lint or test tooling yet. When adding tests, start with the PK math: it is pure, and it is where a mistake matters.
+- Test: `node tests/pk.test.js` checks the nicotine blood curve against a step-by-step simulation. It is the only test; there is no build or lint tooling. When adding tests, stay with the PK math first: it is pure, and it is where a mistake matters.
 - Lines are thousands of characters long. Find code with `grep -n` or `grep -o` plus `cut -c`, not by reading whole lines.
 
 ## Git workflow

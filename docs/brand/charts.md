@@ -20,6 +20,17 @@ Three layers, drawn in this order, all in the compound's hue (`alc`, `caf` or `n
 
 Doses are not drawn inside the plot; they are marked under the x-axis (see below).
 
+## Secondary curve
+
+A second quantity for the same compound, on its own axis. Today it is only the Nicotine tab's optional blood level (ng/mL); it is off by default.
+
+- Drawn after the compound series, in the same hue, so it reads as the same compound in another unit.
+- **Band:** `low` to `high` at hex alpha `12`, half the main band, so both bands stay readable where they overlap.
+- **Line:** dotted `[2,4]`, 2px. No area glow: the glow belongs to the main series.
+- **Axis:** right-hand labels in the compound hue at alpha `b3`, 11px, on the same five gridlines (three labels, 0, half and max, below 500px). The right padding grows from 12 to 44px only while the curve is shown.
+- No reference lines on a secondary axis: they would read as targets.
+- Legend: an 18×2px dotted swatch (`i.dotted`), shown only while the curve is. The unit label names both units. The tooltip adds one line, "Blood ≈ N ng/mL".
+
 ## Markers and reference lines
 
 - Now: a dashed `[5,5]` vertical line, 1.2px, `chart-now`, labelled `NOW` at the top in bold 10px.
@@ -43,4 +54,4 @@ All three compounds on one plot, on a relative 0–1 or a log-mg axis. Its tab c
 ## Legend and export
 
 - The legend sits under the plot behind a `border` hairline. It has 18×3px line swatches, an 8px band swatch in `chart-band` / `chart-band-edge`, 2×12px marker swatches in `chart-now` and `chart-bedtime`, and an 8×7px "Dose" triangle in the compound hue (#b3c1d3 on the Combined view). The unit label sits on the right in `muted`.
-- The PNG export takes its labels from the legend, unit and plot note in the page, and draws the Dose swatch as the same triangle. Change them in the same edit as anything the canvas draws.
+- The PNG export takes its labels from the legend, unit and plot note in the page, and draws the Dose swatch as the same triangle and the dotted swatch as the same dots. Change them in the same edit as anything the canvas draws.
