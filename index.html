@@ -154,10 +154,13 @@ function assignPreset(type,id){const p=presetData(type,id);$('entryQty').value=1
  const l=document.querySelector('label[for="entryNicMg"]');l.textContent=(id.startsWith('cig')||id==='vape'||id.startsWith('patch'))?'Estimated systemic delivery per item (mg)':'Label strength per item (mg)';
  updatePreview();}
 function fillPouch(brand,mg){const s=$('pouchMg'),list=POUCH[brand];$('pouchBrand').value=brand;s.innerHTML=list.map(m=>`<option value="${m}">${m} mg</option>`).join('');s.value=list.reduce((a,b)=>Math.abs(b-mg)<Math.abs(a-mg)?b:a);$('entryNicMg').value=s.value}
+function pouchFromEntry(e){const m=/^(.*?) · ([\d.]+) mg/.exec(e.label)||[];fillPouch(Object.hasOwn(POUCH,m[1])?m[1]:'Generic',m[2]?+m[2]:e.mg);if(+val('pouchMg')!==e.mg)$('pouchMg').add(new Option(`${e.mg} mg (custom)`,e.mg,true,true))}
 function setEntryType(type,sel){entryType=type;document.querySelectorAll('#intakeTabs button').forEach(b=>b.classList.toggle('active',b.dataset.type===type));document.querySelectorAll('.alcohol-only').forEach(el=>el.hidden=type!=='alcohol');document.querySelectorAll('.caffeine-only').forEach(el=>el.hidden=type!=='caffeine');document.querySelectorAll('.nicotine-only').forEach(el=>el.hidden=type!=='nicotine');
  let html='',group='';for(const p of P[type]){let g=p[type==='nicotine'?6:type==='alcohol'?4:4];if(g!==group){if(group)html+='</optgroup>';group=g;html+=`<optgroup label="${esc(group)}">`;}html+=`<option value="${esc(p[0])}">${esc(p[1])}</option>`;}html+='</optgroup>';$('preset').innerHTML=html;
- const id=presetData(type,sel||({alcohol:'pint45',caffeine:'espresso',nicotine:'cig'})[type])[0];$('preset').value=id;assignPreset(type,id);
+ const last=sel?null:lastAdded(type),id=presetData(type,sel||last?.preset||({alcohol:'pint45',caffeine:'espresso',nicotine:'cig'})[type])[0];$('preset').value=id;assignPreset(type,id);if(last&&id==='pouch')pouchFromEntry(last);
 }
+// Newest entry of this type logged in the past week, by the creation time inside its id (not the dose time); older than that, the generic default applies.
+function lastAdded(type){let best=null,at=Date.now()-7*DAY;for(const e of state.entries){const t=e.type===type?parseInt(e.id.slice(1),36):NaN;if(t>at){at=t;best=e}}return best}
 function getFormDose(){const qty=num('entryQty'),dur=num('entryDuration');if(!Number.isFinite(qty)||qty<=0||!Number.isFinite(dur)||dur<0)return null;
  if(entryType==='alcohol'){const volume=num('entryVolume'),abv=num('entryAbv');if(!validNumber(volume,0,10000)||!validNumber(abv,0,100))return null;const pure=qty*volume*abv/100;return {dose:pure*.789,units:pure/10,volume,abv,qty,durationMin:dur,food:val('entryFood'),ka:0};}
  if(entryType==='caffeine'){const mg=num('entryCafMg'),volume=num('entryCafVol');if(!validNumber(mg,0,2000)||!validNumber(volume,0,5000))return null;return {dose:qty*mg,mg,volume,qty,durationMin:dur,ka:5.5};}
@@ -273,7 +276,7 @@ function normalizeProfile(obj){const p={...defaults};if(!obj||typeof obj!=='obje
 function editEntry(id){const e=state.entries.find(e=>e.id===id);if(!e)return;editId=e.id;setEntryType(e.type,e.preset);setEntryTime(Date.parse(e.time));$('entryQty').value=e.qty;$('entryDuration').value=e.durationMin;$('entryNote').value=e.note||'';
  if(e.type==='alcohol'){$('entryVolume').value=e.volume;$('entryAbv').value=e.abv;$('entryFood').value=e.food}
  if(e.type==='caffeine'){$('entryCafMg').value=e.mg;$('entryCafVol').value=e.volume}
- if(val('preset')==='pouch'){const m=/^(.*?) · ([\d.]+) mg/.exec(e.label)||[];fillPouch(Object.hasOwn(POUCH,m[1])?m[1]:'Generic',m[2]?+m[2]:e.mg);if(+val('pouchMg')!==e.mg)$('pouchMg').add(new Option(`${e.mg} mg (custom)`,e.mg,true,true))}
+ if(val('preset')==='pouch')pouchFromEntry(e);
  if(e.type==='nicotine'){$('entryNicMg').value=e.mg;$('entryNicF').value=e.fraction}
  $('addBtn').innerHTML=ic('check')+'Update entry';$('entryDialogTitle').textContent='Edit intake';$('entryFeedback').textContent='';updatePreview();$('entryDialog').showModal();}
 let dupOpen=false;function duplicateEntry(id){editEntry(id);editId=null;dupOpen=true;setEntryTime(Date.now());$('addBtn').innerHTML=ic('plus')+'Add to timeline';$('entryDialogTitle').textContent='Duplicate intake'}
