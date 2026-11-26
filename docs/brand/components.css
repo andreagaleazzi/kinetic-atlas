@@ -82,7 +82,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .tabs .alcohol.active { box-shadow: inset 0 -2px var(--alc); }
 .tabs .caffeine.active { box-shadow: inset 0 -2px var(--caf); }
 .tabs .nicotine.active { box-shadow: inset 0 -2px var(--nic); }
-.tabs .all.active { background: linear-gradient(90deg, var(--alc), var(--caf), var(--nic)) bottom / 100% 2px no-repeat, var(--tab-active); }
+.tabs .all.active { position: relative; isolation: isolate; background: linear-gradient(90deg, var(--alc), var(--caf), var(--nic)) bottom / 100% 8px no-repeat, var(--tab-active); }
+/* Cover: hides all but the bottom 2px of the gradient, with the button's own corner radius, so the stripe curves like the other tabs' inset shadow. */
+.tabs .all.active::after { content: ''; position: absolute; z-index: -1; left: 0; right: 0; bottom: 2px; height: 8px; border-radius: 0 0 var(--radius-sm) var(--radius-sm); background: var(--tab-active); }
 .pill-btns { display: inline-flex; gap: var(--space-1); padding: var(--space-1); border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--track); }
 .pill-btns button { background: transparent; border: 0; border-radius: var(--radius-xs); color: var(--muted); font-size: 11px; font-weight: 750; padding: 7px 11px; }
 .pill-btns button.active { background: var(--pill-active); color: var(--text); box-shadow: var(--shadow-pill); }
